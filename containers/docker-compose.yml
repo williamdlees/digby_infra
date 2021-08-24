@@ -11,11 +11,11 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - URL=lees.org.uk
-      - SUBDOMAINS=ogrdb_test
+      - SUBDOMAINS=ogrdbtest
       - VALIDATION=http
       - EMAIL=william@lees.org.uk  #optional
       - ONLY_SUBDOMAINS=true #optional
-      - EXTRA_DOMAINS=vdjbase_test.vdjbase.org #optional
+      - EXTRA_DOMAINS=vdjbasetest.vdjbase.org #optional
       - STAGING=true #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
