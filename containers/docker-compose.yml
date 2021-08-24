@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  swag:
+    image: ghcr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=lees.org.uk
+      - SUBDOMAINS=ogrdb_test
+      - VALIDATION=http
+      - EMAIL=william@lees.org.uk  #optional
+      - ONLY_SUBDOMAINS=true #optional
+      - EXTRA_DOMAINS=vdjbase_test.vdjbase.org #optional
+      - STAGING=true #optional
+    volumes:
+      - /root/digby_infra/config/nginx:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
+  mariadb:
+    image: linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=gsdfgtwevdfg
+      - TZ=Europe/London
+    volumes:
+      - /root/digby_infra/config/mysql:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+    
+networks:
+    default:
+    name: digby_network
