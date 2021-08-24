@@ -39,4 +39,4 @@ services:
     
 networks:
     default:
-    name: digby_network
+        name: digby_network
