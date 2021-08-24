@@ -16,7 +16,7 @@ services:
       - EMAIL=william@lees.org.uk  #optional
       - ONLY_SUBDOMAINS=true #optional
       - EXTRA_DOMAINS=vdjbasetest.vdjbase.org #optional
-      - STAGING=true #optional
+      - STAGING=false #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
     ports:
