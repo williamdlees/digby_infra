@@ -3,10 +3,10 @@ upstream vdjbase_flask {
 }
 
 server {
-    listen 443 ssl http2 default_server;
-        listen [::]:443 ssl http2 default_server;
+    listen 443 ssl http2;
+        listen [::]:443 ssl http2;
 
-    server_name vdjbasetest.vdjbase.org;
+    server_name vdjbasetest.vdjbase.org www.vdjbasetest.vdjbase.org;
 
     include /config/nginx/ssl.conf;
 

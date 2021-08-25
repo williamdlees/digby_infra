@@ -3,10 +3,10 @@ upstream ogrdb_flask {
 }
 
 server {
-    listen 443 ssl http2 default_server;
-        listen [::]:443 ssl http2 default_server;
+    listen 443 ssl http2;
+        listen [::]:443 ssl http2;
 
-    server_name ogrdbtest.lees.org.uk;
+    server_name ogrdbtest.lees.org.uk www.ogrdbtest.lees.org.uk;
 
     include /config/nginx/ssl.conf;
 
