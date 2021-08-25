@@ -21,7 +21,7 @@ server {
     }
 
     location / {
-        root /config/www/vdjbase;
+        root /vdjbase_www;
         index index.html;
         try_files $uri $uri/ /index.html =404;
     }

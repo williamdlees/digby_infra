@@ -33,6 +33,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /root/digby_infra/config/mysql:/config
+      - /root/digby_docker/config/nginx/www:/vdjbase_www
     ports:
       - 3306:3306
     restart: unless-stopped
