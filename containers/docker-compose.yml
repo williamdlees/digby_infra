@@ -19,6 +19,7 @@ services:
       - STAGING=false #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
+      - /root/digby_docker/config/nginx/www:/vdjbase_www
     ports:
       - 443:443
       - 80:80 #optional
@@ -33,7 +34,6 @@ services:
       - TZ=Europe/London
     volumes:
       - /root/digby_infra/config/mysql:/config
-      - /root/digby_docker/config/nginx/www:/vdjbase_www
     ports:
       - 3306:3306
     restart: unless-stopped
