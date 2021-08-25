@@ -11,7 +11,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - URL=lees.org.uk
-      - SUBDOMAINS=ogrdbtest
+      - SUBDOMAINS=ogrdbtest,vdjbaseadmin
       - VALIDATION=http
       - EMAIL=william@lees.org.uk  #optional
       - ONLY_SUBDOMAINS=true #optional
