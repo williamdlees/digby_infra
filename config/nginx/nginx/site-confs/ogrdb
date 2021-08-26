@@ -10,8 +10,8 @@ server {
 
     include /config/nginx/ssl.conf;
 
-	if ( $http_host ~* "www\.(.*)") {
-                 return 301 https://$1$request_uri;
+	if ( $http_host ~ "www.ogrdbtest.lees.org.uk") {
+                 return 301 https://ogrdbtest.lees.org.uk;
 	}
 
     location / {

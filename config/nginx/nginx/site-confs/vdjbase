@@ -11,8 +11,8 @@ server {
 	
     include /config/nginx/ssl.conf;
 
-	if ( $http_host ~* "www\.(.*)") {
-                 return 301 https://$1$request_uri;
+	if ( $http_host ~ "www.vdjbasetest.vdjbase.org") {
+                 return 301 https://vdjbasetest.vdjbase.org;
 	}
 
     location /admin {
