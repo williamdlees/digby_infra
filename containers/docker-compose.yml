@@ -11,14 +11,15 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - URL=lees.org.uk
-      - SUBDOMAINS=ogrdbtest, www.ogrdbtest
+      - SUBDOMAINS=wordpress
       - VALIDATION=http
       - EMAIL=william@lees.org.uk  #optional
       - ONLY_SUBDOMAINS=true #optional
-      - EXTRA_DOMAINS=vdjbasetest.vdjbase.org, www.vdjbasetest.vdjbase.org #optional
-      - STAGING=false #optional
+#      - EXTRA_DOMAINS= #optional
+      - STAGING=true #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
+      - /root/digby_infra/config/wordpress/html:/wordpress_www
       - /root/digby_docker/config/nginx/www:/vdjbase_www
     ports:
       - 443:443
@@ -35,7 +36,21 @@ services:
     volumes:
       - /root/digby_infra/config/mysql:/config
     restart: unless-stopped
-    
+  wordpress:
+    image: 5-fpm-alpine
+    container_name: wordpress
+    environment:
+      - WORDPRESS_DB_HOST: mariadb
+      - MYSQL_ROOT_PASSWORD: gsdfgtwevdfg
+      - WORDPRESS_DB_NAME: wordpress
+      - WORDPRESS_DB_USER: wordpress
+      - WORDPRESS_DB_PASSWORD: dfoiweoriw
+      - WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - /root/digby_infra/config/wordpress/html:/var/www/html
+    depends_on:
+      - mariadb
+    restart: unless-stopped
 networks:
     default:
         name: digby_network

@@ -6,3 +6,7 @@ CREATE DATABASE digby;
 CREATE USER 'digby'@'%' IDENTIFIED BY 'digby';
 GRANT ALL PRIVILEGES ON digby.* TO 'digby'@'%';
 USE digby;
+CREATE DATABASE wordpress;
+CREATE USER 'wordpress'@'%' IDENTIFIED BY 'dfoiweoriw';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'%';
+USE wordpress;
