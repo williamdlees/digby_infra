@@ -37,7 +37,7 @@ services:
       - /root/digby_infra/config/mysql:/config
     restart: unless-stopped
   wordpress:
-    image: 5-fpm-alpine
+    image: wordpress:5-fpm-alpine
     container_name: wordpress
     environment:
       - WORDPRESS_DB_HOST=mariadb
