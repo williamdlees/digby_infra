@@ -40,12 +40,12 @@ services:
     image: 5-fpm-alpine
     container_name: wordpress
     environment:
-      - WORDPRESS_DB_HOST: mariadb
-      - MYSQL_ROOT_PASSWORD: gsdfgtwevdfg
-      - WORDPRESS_DB_NAME: wordpress
-      - WORDPRESS_DB_USER: wordpress
-      - WORDPRESS_DB_PASSWORD: dfoiweoriw
-      - WORDPRESS_TABLE_PREFIX: wp_
+      - WORDPRESS_DB_HOST=mariadb
+      - MYSQL_ROOT_PASSWORD=gsdfgtwevdfg
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=dfoiweoriw
+      - WORDPRESS_TABLE_PREFIX=wp_
     volumes:
       - /root/digby_infra/config/wordpress/html:/var/www/html
     depends_on:
