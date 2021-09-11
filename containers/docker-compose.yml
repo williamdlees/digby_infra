@@ -11,12 +11,12 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - URL=lees.org.uk
-      - SUBDOMAINS=wordpress
+      - SUBDOMAINS=wordpress,www.wordpress
       - VALIDATION=http
       - EMAIL=william@lees.org.uk  #optional
       - ONLY_SUBDOMAINS=true #optional
 #      - EXTRA_DOMAINS= #optional
-      - STAGING=true #optional
+      - STAGING=false #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
       - /root/digby_infra/config/wordpress/html:/wordpress_www
