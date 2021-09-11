@@ -6,24 +6,27 @@ server {
 
     include /config/nginx/ssl.conf;
 
-	if ( $http_host ~ "www.wordpress.lees.org.uk") {
+        if ( $http_host ~ "www.wordpress.lees.org.uk") {
                  return 301 https://wordpress.lees.org.uk;
-	}
+        }
 
     location / {
         root /wordpress_www;
-        try_files $uri $uri/ /index.php?$is_args$args;
+        try_files $uri $uri/index.php?$args;
     }
 
+    # also needs a line in nginx.conf http block: log_format scripts '/var/www/html$fastcgi_script_name > $request'; 
+	# modify the format to log the params whose values you want to capture in the log file
+    # access_log /config/log/nginx/scripts.log scripts;
+
     location ~ \.php$ {
-	    root /var/www/html;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass wordpress:9000;
         fastcgi_index index.php;
         include /etc/nginx/fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+		# below we use the path of the script file as seen by the wordpress container
+        fastcgi_param SCRIPT_FILENAME /var/www/html$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
   }
-
 }
 
