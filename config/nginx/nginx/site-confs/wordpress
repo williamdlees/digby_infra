@@ -2,11 +2,11 @@ server {
     listen 443 ssl http2;
         listen [::]:443 ssl http2;
 
-    server_name wordpress.lees.org.uk www.wordpress.lees.org.uk;
+    server_name wordpress.vdjbase.org www.wordpress.vdjbase.org;
 
     include /config/nginx/ssl.conf;
 
-        if ( $http_host ~ "www.wordpress.lees.org.uk") {
+        if ( $http_host ~ "www.wordpress.vdjbase.org") {
                  return 301 https://wordpress.lees.org.uk;
         }
 
@@ -25,7 +25,7 @@ server {
     }
 
     # also needs a line in nginx.conf http block: log_format scripts '/var/www/html$fastcgi_script_name > $request';
-        # modify the format to log the params whose values you want to capture in the log file
+    # modify the format to log the params whose values you want to capture in the log file
     # access_log /config/log/nginx/scripts.log scripts;
 
     location ~ \.php$ {

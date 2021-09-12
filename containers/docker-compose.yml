@@ -10,12 +10,12 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - URL=lees.org.uk
-      - SUBDOMAINS=wordpress,www.wordpress
+      - URL=vdjbase.org
+      - SUBDOMAINS=www,wordpress,www.wordpress
       - VALIDATION=http
       - EMAIL=william@lees.org.uk  #optional
-      - ONLY_SUBDOMAINS=true #optional
-#      - EXTRA_DOMAINS= #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - EXTRA_DOMAINS=ogrdbtest.lees.org.uk,www.ogrdbtest.lees.org.uk
       - STAGING=false #optional
     volumes:
       - /root/digby_infra/config/nginx:/config
