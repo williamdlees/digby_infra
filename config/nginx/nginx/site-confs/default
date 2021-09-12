@@ -22,6 +22,6 @@ server {
 		location = /502.html {
 		}
 		
-		error_page 502 =503 /502.html
-		error_page 503 /503.html
+		error_page 502 =503 /502.html;
+		error_page 503 /503.html;
 }
