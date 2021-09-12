@@ -8,6 +8,11 @@ server {
 
 # we'll get here if an upstream server is down. Default is to return 502, which is a permanent error. Substitute 
 # a custom 503 page
+
+map "" $empty {
+        default "";
+}
+
 server {
         listen 443 default_server;
         listen [::]:443 default_server;
