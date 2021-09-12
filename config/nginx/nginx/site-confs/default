@@ -13,15 +13,9 @@ server {
         listen [::]:443 default_server;
         server_name _;
 
-		root /config/nginx/www;
-		
-		location / {
-			return 503;
-		}
-		
-		location = /502.html {
-		}
-		
-		error_page 502 =503 /502.html;
-		error_page 503 /503.html;
+        ssl_ciphers aNULL;
+        ssl_certificate data:$empty;
+        ssl_certificate_key data:$empty;
+
+        return 444;
 }
