@@ -48,6 +48,7 @@ services:
       - WORDPRESS_TABLE_PREFIX=wp_
     volumes:
       - /root/digby_infra/config/wordpress/html:/var/www/html
+      - /root/digby_infra/config/wordpress/backup:/backup
     depends_on:
       - mariadb
     restart: unless-stopped
