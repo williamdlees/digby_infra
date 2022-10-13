@@ -18,6 +18,7 @@ services:
       - EXTRA_DOMAINS=ogrdbtest.lees.org.uk,www.ogrdbtest.lees.org.uk
       - STAGING=false #optional
     volumes:
+      - /root/digby_infra/config/swag_startup:/custom-cont-init.d:ro
       - /root/digby_infra/config/nginx:/config
       - /root/digby_infra/config/wordpress/html:/wordpress_www
       - /root/digby_docker/config/nginx/www:/vdjbase_www

@@ -1,0 +1,2 @@
+#!/bin/bash
+/bin/sed -i 's/rotate 14/rotate 52/'  /etc/logrotate.d/nginx
