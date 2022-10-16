@@ -1,2 +1,6 @@
 #!/bin/bash
 /bin/sed -i 's/rotate 14/rotate 52/'  /etc/logrotate.d/nginx
+cp /custom-cont-init.d/cronfiles/run_goaccess.sh /app/.
+chmod 0500 /app/run_goaccess.sh
+cat /custom-cont-init.d/cronfiles/to_crontab >>/etc/crontabs/root
+

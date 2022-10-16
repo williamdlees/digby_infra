@@ -1,0 +1,1 @@
+17       9      *       *       *       /app/run_goaccess.sh >> /config/log/nginx/goaccess.log 2>&1
