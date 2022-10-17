@@ -1,6 +1,8 @@
 #!/bin/bash
 /bin/sed -i 's/rotate 14/rotate 52/'  /etc/logrotate.d/nginx
+apk add --no-cache goaccess
 cp /custom-cont-init.d/cronfiles/run_goaccess.sh /app/.
 chmod 0500 /app/run_goaccess.sh
 cat /custom-cont-init.d/cronfiles/to_crontab >>/etc/crontabs/root
-
+apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+cp /custom-cont-init.d/cronfiles/healthchecks.py /app/.
