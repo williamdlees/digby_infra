@@ -6,7 +6,7 @@ cd /config/log/nginx
 
 if ! [ $(find "/config/www/manage/ogrdb_usage.html") ]
 then
-    python /app/healthchecks.py infra-goaccess fail -m "ogrdb_usage.html not created"
+    /usr/bin/python /app/healthchecks.py infra-goaccess fail -m "ogrdb_usage.html not created"
 	exit
 else
 	echo "ogrdb_usage.html exists"
@@ -14,7 +14,7 @@ fi
 
 if ! [ $(find "/config/www/manage/vdjbase_usage.html") ]
 then
-    python /app/healthchecks.py infra-goaccess fail -m "vdjbase_usage.html not created"
+    /usr/bin/python /app/healthchecks.py infra-goaccess fail -m "vdjbase_usage.html not created"
 	exit
 else
 	echo "vdjbase_usage.html exists"
@@ -22,7 +22,7 @@ fi
 
 if [ $(find "/config/www/manage/ogrdb_usage.html" -mmin +60) ]
 then
-	python /app/healthchecks.py infra-goaccess fail -m "ogrdb_usage.html not updated"
+	/usr/bin/python /app/healthchecks.py infra-goaccess fail -m "ogrdb_usage.html not updated"
 	exit
 else
 	echo "ogrdb_usage.html has been updated"
@@ -30,12 +30,12 @@ fi
 	
 if [ $(find "/config/www/manage/vdjbase_usage.html" -mmin +60) ]
 then
-	python /app/healthchecks.py infra-goaccess fail -m "vdjbase_usage.html not updated"
+	/usr/bin/python /app/healthchecks.py infra-goaccess fail -m "vdjbase_usage.html not updated"
 	exit
 else
 	echo "vdjbase_usage.html has been updated"
 fi
 	
 
-python /app/healthchecks.py infra-goaccess success
+/usr/bin/python /app/healthchecks.py infra-goaccess success
 
