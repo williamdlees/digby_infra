@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: docker-compose
+    directory: /containers
+    schedule:
+      interval: weekly
+    groups:
+      container-images:
+        patterns:
+          - "*"
